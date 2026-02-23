@@ -95,32 +95,6 @@ DEBUG=False
 ADMIN_PASSWORD=mirra_admin_2024
 ```
 
-Veja também o arquivo de exemplo de variáveis de ambiente: `.env.example` na raiz do repositório (copie para `.env` e preencha os valores).
-
-**Importante — passo a passo rápido para Gmail (2FA + Senha de App)**
-
-1. Ative a Verificação em Duas Etapas (2FA) na sua Conta Google: https://myaccount.google.com/security
-2. Em seguida acesse Senhas de app: https://myaccount.google.com/apppasswords
-3. Em "Selecionar app" escolha "Mail" e em "Selecionar dispositivo" escolha "Other" e dê um nome como `mirra-cookies`.
-4. Clique em "Gerar" e copie a senha de 16 caracteres (sem espaços) para `MIRRA_EMAIL_PASSWORD`.
-5. Nunca use sua senha normal da conta — sempre use a Senha de App.
-
-**Se estiver rodando com Docker / docker-compose**
-
-Adicione as variáveis ao serviço no `docker-compose.yml`, por exemplo:
-
-```yaml
-services:
-   web:
-      build: .
-      environment:
-         - MIRRA_EMAIL=seu-email@gmail.com
-         - MIRRA_EMAIL_PASSWORD=xxxxxxxxxxxxxxxx
-         - DEBUG=False
-```
-
-Obs: nunca comite o `docker-compose.yml` com senhas reais — prefira variáveis de ambiente no CI/CD ou um arquivo `.env` fora do controle de versão.
-
 #### Option 2: Outlook
 ```env
 MIRRA_EMAIL=seu-email@outlook.com
