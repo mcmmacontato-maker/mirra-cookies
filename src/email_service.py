@@ -11,10 +11,23 @@ logger = logging.getLogger(__name__)
 
 class EmailService:
     """Service for sending emails"""
+    @staticmethod
+    def _validate_config():
+        """Validate email configuration and return (is_valid, message)"""
+        if not EmailConfig.SENDER_EMAIL or EmailConfig.SENDER_EMAIL == "seu-email@gmail.com":
+            return False, "remetente (MIRRA_EMAIL) não configurado"
+        if not EmailConfig.SENDER_PASSWORD or EmailConfig.SENDER_PASSWORD == "sua-senha-app-google":
+            return False, "senha do remetente (MIRRA_EMAIL_PASSWORD) não configurada - use Senha de App do Google"
+        return True, ""
     
     @staticmethod
     def send_recovery_code(recipient_email, recovery_code, user_name="Visitante"):
         """Send password recovery code via email"""
+        valid, msg = EmailService._validate_config()
+        if not valid:
+            logger.error(f"Configuração de e-mail inválida: {msg}")
+            return False
+
         try:
             # Create message
             message = MIMEMultipart('alternative')
@@ -101,9 +114,14 @@ class EmailService:
             logger.info(f"Recovery code email sent to {recipient_email}")
             return True
             
+        except smtplib.SMTPAuthenticationError as e:
+            logger.error(f"Autenticação SMTP falhou: verifique MIRRA_EMAIL e MIRRA_EMAIL_PASSWORD. {e}")
+            return False
+        except smtplib.SMTPException as e:
+            logger.error(f"Erro SMTP ao enviar e-mail: {e}")
+            return False
         except Exception as e:
             logger.error(f"Error sending recovery email: {str(e)}")
-            # Para desenvolvimento: apenas log sem falhar
             if AppConfig.DEBUG:
                 logger.warning(f"DEBUG MODE: Email would be sent to {recipient_email} with code {recovery_code}")
                 return True
@@ -113,6 +131,11 @@ class EmailService:
     def send_order_confirmation(recipient_email, order_number, order_total, user_name="Visitante"):
         """Send order confirmation email"""
         try:
+            valid, msg = EmailService._validate_config()
+            if not valid:
+                logger.error(f"Configuração de e-mail inválida: {msg}")
+                return False
+
             message = MIMEMultipart('alternative')
             message['Subject'] = f"🍪 Pedido Confirmado #{order_number} - Mirra Cookies"
             message['From'] = EmailConfig.SENDER_EMAIL
@@ -188,10 +211,16 @@ class EmailService:
                 server.starttls()
                 server.login(EmailConfig.SENDER_EMAIL, EmailConfig.SENDER_PASSWORD)
                 server.send_message(message)
-            
+
             logger.info(f"Order confirmation email sent to {recipient_email}")
             return True
             
+        except smtplib.SMTPAuthenticationError as e:
+            logger.error(f"Autenticação SMTP falhou: {e}")
+            return False
+        except smtplib.SMTPException as e:
+            logger.error(f"Erro SMTP ao enviar confirmação de pedido: {e}")
+            return False
         except Exception as e:
             logger.error(f"Error sending order confirmation: {str(e)}")
             return False
@@ -200,6 +229,11 @@ class EmailService:
     def send_contact_form_notification(sender_name, sender_email, subject, message_text):
         """Send contact form notification to admin"""
         try:
+            valid, msg = EmailService._validate_config()
+            if not valid:
+                logger.error(f"Configuração de e-mail inválida: {msg}")
+                return False
+
             message = MIMEMultipart('alternative')
             message['Subject'] = f"📧 Nova Mensagem de Contato: {subject}"
             message['From'] = EmailConfig.SENDER_EMAIL
@@ -225,10 +259,16 @@ class EmailService:
                 server.starttls()
                 server.login(EmailConfig.SENDER_EMAIL, EmailConfig.SENDER_PASSWORD)
                 server.send_message(message)
-            
+
             logger.info(f"Contact form notification sent from {sender_email}")
             return True
-            
+
+        except smtplib.SMTPAuthenticationError as e:
+            logger.error(f"Autenticação SMTP falhou: {e}")
+            return False
+        except smtplib.SMTPException as e:
+            logger.error(f"Erro SMTP ao enviar notificação de contato: {e}")
+            return False
         except Exception as e:
             logger.error(f"Error sending contact notification: {str(e)}")
             return False
