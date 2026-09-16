@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f7f2e9" />
+    <title>Mirra Cookies — cookies artesanais em Recife</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Playfair+Display:wght@600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="pro.css" />
+    <link rel="stylesheet" href="interactions.css" />
+    <link rel="stylesheet" href="flavors.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body>
+    <div class="announcement-bar"><span><i data-lucide="truck"></i> frete grátis acima de R$ 120</span><span class="announcement-center">fornadas fresquinhas todos os dias</span><a href="#combos">ver promoção <i data-lucide="arrow-up-right"></i></a></div>
+    <header class="site-header">
+      <a class="brand" href="#inicio" aria-label="Mirra Cookies, início">
+        <span class="brand-mark">M</span>
+        <span>mirra<span class="brand-dot">.</span></span>
+      </a>
+      <nav class="main-nav" aria-label="Navegação principal">
+        <a href="#sabores">Sabores</a>
+        <a href="#combos">Combos</a>
+        <a href="#como-pedir">Como pedir</a>
+        <a href="#sobre">A casa</a>
+      </nav>
+      <div class="header-location"><i data-lucide="map-pin"></i><span>Recife, PE</span></div>
+      <button class="cart-trigger" type="button" aria-label="Abrir carrinho" data-open-cart>
+        <i data-lucide="shopping-bag"></i>
+        <span>Seu pedido</span>
+        <b class="cart-count">0</b>
+      </button>
+    </header>
+
+    <main>
+      <section class="hero" id="inicio">
+        <div class="hero-copy reveal">
+          <p class="eyebrow"><span></span> feito em Recife, PE</p>
+          <h1>O cookie que<br /><em>mora</em> no seu dia.</h1>
+          <p class="hero-text">Massa crocante por fora, centro macio por dentro e combinações que fazem qualquer pausa ficar melhor.</p>
+          <div class="hero-actions">
+            <a class="button button-dark" href="#sabores">ver sabores <i data-lucide="arrow-down-right"></i></a>
+            <span class="delivery-note"><i data-lucide="bike"></i> entrega hoje até 20h</span>
+          </div>
+          <div class="hero-proof"><div class="avatar-stack"><span>J</span><span>M</span><span>A</span></div><p><strong>4.9/5</strong> por quem já provou<br /><span>+ de 2.000 pedidos entregues</span></p></div>
+        </div>
+        <div class="hero-art reveal reveal-delay">
+          <div class="stamp">assado<br /><strong>agora</strong></div>
+          <div class="hero-cookie cookie-photo"></div>
+          <div class="scribble">feito à mão<br />com carinho</div>
+        </div>
+        <div class="hero-bottom">
+          <span>01 / 03</span>
+          <div class="scroll-line"></div>
+          <span>role para descobrir</span>
+        </div>
+      </section>
+
+      <section class="trust-strip">
+        <div><i data-lucide="map-pin"></i><span>Recife e região</span></div>
+        <div><i data-lucide="sparkles"></i><span>ingredientes de verdade</span></div>
+        <div><i data-lucide="heart"></i><span>feito em pequenos lotes</span></div>
+        <div><i data-lucide="clock-3"></i><span>pedido até 20h</span></div>
+      </section>
+
+      <section class="experience-section" id="como-pedir">
+        <div class="section-heading compact-heading"><div><p class="eyebrow"><span></span> simples assim</p><h2>Do forno para<br /><em>você.</em></h2></div><p class="section-intro">Tudo pensado para a sua pausa ter mais sabor, sem complicação.</p></div>
+        <div class="experience-grid">
+          <article class="experience-card"><span class="step-number">01</span><i data-lucide="mouse-pointer-click"></i><h3>Escolha seus favoritos</h3><p>Monte sua sacola com sabores individuais ou aproveite um dos nossos combos.</p></article>
+          <article class="experience-card experience-card-highlight"><span class="step-number">02</span><i data-lucide="flame"></i><h3>Assamos na hora</h3><p>Cada pedido entra na próxima fornada para chegar com textura e aroma perfeitos.</p></article>
+          <article class="experience-card"><span class="step-number">03</span><i data-lucide="bike"></i><h3>Receba em Recife</h3><p>Entregamos hoje ou você pode retirar fresquinho no nosso ponto em Boa Viagem.</p></article>
+        </div>
+      </section>
+
+      <section class="products-section" id="sabores">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow"><span></span> o balcão da mirra</p>
+            <h2>Escolha seu <em>momento.</em></h2>
+          </div>
+          <p class="section-intro">Sabores autorais, recheios generosos e aquele cheirinho de fornada nova chegando.</p>
+        </div>
+        <div class="filter-row" role="tablist" aria-label="Filtrar produtos">
+          <button class="filter active" type="button" data-filter="todos">todos</button>
+          <button class="filter" type="button" data-filter="classicos">clássicos</button>
+          <button class="filter" type="button" data-filter="recheados">recheados</button>
+          <button class="filter" type="button" data-filter="veganos">veganos</button>
+        </div>
+        <div class="product-grid" id="product-grid">
+          <article class="product-card" data-category="classicos" data-name="Chocolate Belga" data-price="14">
+            <div class="product-image image-chocolate"><span class="product-tag">queridinho</span><button class="quick-view" type="button" aria-label="Ver Chocolate Belga"><i data-lucide="arrow-up-right"></i></button></div>
+            <div class="product-info"><div><h3>Chocolate Belga</h3><p>chocolate 54% + flor de sal</p><small>110g · contém leite</small></div><strong>R$ 14</strong></div>
+            <button class="add-button" type="button" data-add><span>adicionar</span><i data-lucide="plus"></i></button>
+          </article>
+          <article class="product-card" data-category="recheados" data-name="Red Velvet" data-price="16">
+            <div class="product-image image-red"><span class="product-tag product-tag-pink">mais pedido</span><button class="quick-view" type="button" aria-label="Ver Red Velvet"><i data-lucide="arrow-up-right"></i></button></div>
+            <div class="product-info"><div><h3>Red Velvet</h3><p>cream cheese + chocolate branco</p><small>115g · contém leite</small></div><strong>R$ 16</strong></div>
+            <button class="add-button" type="button" data-add><span>adicionar</span><i data-lucide="plus"></i></button>
+          </article>
+          <article class="product-card" data-category="classicos" data-name="Pistache & Limão" data-price="17">
+            <div class="product-image image-pistachio"><span class="product-tag product-tag-green">novo</span><button class="quick-view" type="button" aria-label="Ver Pistache e Limão"><i data-lucide="arrow-up-right"></i></button></div>
+            <div class="product-info"><div><h3>Pistache & Limão</h3><p>pistache torrado + limão siciliano</p><small>105g · contém castanhas</small></div><strong>R$ 17</strong></div>
+            <button class="add-button" type="button" data-add><span>adicionar</span><i data-lucide="plus"></i></button>
+          </article>
+          <article class="product-card" data-category="veganos" data-name="Café com Cacau" data-price="15">
+            <div class="product-image image-coffee"><span class="product-tag product-tag-yellow">vegano</span><button class="quick-view" type="button" aria-label="Ver Café com Cacau"><i data-lucide="arrow-up-right"></i></button></div>
+            <div class="product-info"><div><h3>Café com Cacau</h3><p>espresso + nibs de cacau</p><small>100g · 100% vegetal</small></div><strong>R$ 15</strong></div>
+            <button class="add-button" type="button" data-add><span>adicionar</span><i data-lucide="plus"></i></button>
+          </article>
+        </div>
+      </section>
+
+      <section class="promo-section" id="combos">
+        <div class="promo-image"></div>
+        <div class="promo-copy">
+          <p class="eyebrow eyebrow-light"><span></span> pausa compartilhada</p>
+          <h2>Combo para<br /><em>dividir.</em></h2>
+          <p>6 cookies + 2 cafés gelados para transformar qualquer encontro em uma boa história.</p>
+          <div class="promo-price"><span>de R$ 112</span><strong>R$ 89</strong></div>
+          <button class="button button-light" type="button" data-combo>quero esse combo <i data-lucide="arrow-up-right"></i></button>
+        </div>
+        <span class="promo-sticker">-20%<br /><small>hoje</small></span>
+      </section>
+
+      <section class="review-section">
+        <div class="review-mark">“</div>
+        <div class="review-content"><p class="eyebrow"><span></span> quem prova, conta</p><blockquote>“O tipo de cookie que faz a gente fechar os olhos na primeira mordida. O pistache virou meu novo ritual de sexta.”</blockquote><div class="review-author"><span class="review-avatar">LC</span><span><strong>Luiza C.</strong><small>cliente Mirra desde 2023</small></span><span class="stars">★★★★★</span></div></div>
+        <div class="review-count"><strong>2.000+</strong><span>pedidos felizes</span></div>
+      </section>
+
+      <section class="about-section" id="sobre">
+        <div class="about-title"><p class="eyebrow"><span></span> por trás da fornada</p><h2>Tem gosto de<br /><em>casa.</em></h2></div>
+        <div class="about-copy"><p>A Mirra nasceu de uma vontade simples: fazer cookies que chegassem quentinhos, cheios de personalidade e com um toque de Recife em cada mordida.</p><a href="#sabores" class="text-link">conheça nossos sabores <i data-lucide="arrow-up-right"></i></a></div>
+        <div class="about-number">03</div>
+      </section>
+    </main>
+
+    <footer class="site-footer"><div class="footer-brand">mirra<span>.</span><small>cookies artesanais</small></div><p>cookies artesanais & cafés gelados<br />Recife, Pernambuco</p><div class="footer-social"><a href="#inicio">instagram</a><a href="#inicio">whatsapp</a><a href="#inicio">contato</a></div><div class="footer-hours"><strong>horários</strong><span>seg a sáb · 10h às 20h</span><span>dom · 12h às 18h</span></div><small>© 2024 mirra cookies</small></footer>
+
+    <div class="cart-overlay" data-cart-overlay></div>
+    <aside class="cart-drawer" aria-label="Seu pedido" aria-hidden="true">
+      <div class="cart-header"><div><p class="eyebrow"><span></span> seu pedido</p><h2>Na sacola <em>;</em></h2></div><button class="icon-button" type="button" aria-label="Fechar carrinho" data-close-cart><i data-lucide="x"></i></button></div>
+      <div class="cart-items" data-cart-items><div class="empty-cart"><i data-lucide="cookie"></i><p>Sua sacola está esperando<br />por algo gostoso.</p><a href="#sabores" data-close-cart>ver sabores</a></div></div>
+      <div class="cart-footer"><div class="free-shipping"><i data-lucide="truck"></i><span>Faltam <strong data-shipping-gap>R$ 120</strong> para ganhar frete grátis</span></div><div class="total-row"><span>subtotal</span><strong data-total>R$ 0</strong></div><button class="button button-dark checkout" type="button" data-checkout>ir para o pagamento <i data-lucide="arrow-right"></i></button><small>entrega calculada no checkout</small></div>
+    </aside>
+    <div class="toast" role="status" aria-live="polite"><i data-lucide="check"></i><span>Adicionado à sua sacola</span></div>
+    <div class="quick-view-modal" data-quick-view-modal aria-hidden="true"><div class="quick-view-backdrop" data-close-quick-view></div><div class="quick-view-dialog" role="dialog" aria-modal="true" aria-label="Detalhes do produto"><button class="icon-button" type="button" aria-label="Fechar detalhes" data-close-quick-view><i data-lucide="x"></i></button><div class="quick-view-photo" data-modal-photo></div><div class="quick-view-details"><p class="eyebrow"><span></span> feito na mirra</p><h2 data-modal-name>Chocolate Belga</h2><p data-modal-description>Chocolate intenso, massa amanteigada e um toque delicado de flor de sal.</p><div class="modal-meta"><strong data-modal-price>R$ 14</strong><span>110g · assado hoje</span></div><button class="button button-dark" type="button" data-modal-add>adicionar à sacola <i data-lucide="plus"></i></button></div></div></div>
+    <script src="app.js"></script>
+  </body>
+</html>
